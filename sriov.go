@@ -72,6 +72,12 @@ func GetAllNetDevice() ([]string, error) {
 		if strings.HasPrefix(iface.Name, "docker") || strings.HasPrefix(iface.Name, "cali") {
 			continue
 		}
+		if strings.HasPrefix(iface.Name, "vvport") || strings.HasPrefix(iface.Name, "bond0") {
+			continue
+		}
+		if strings.HasPrefix(iface.Name, "inb01") {
+			continue
+		}
 		res = append(res, iface.Name)
 	}
 	return res, nil
